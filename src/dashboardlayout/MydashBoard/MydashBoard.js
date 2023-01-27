@@ -8,13 +8,14 @@ const MydashBoard = () => {
     const {user} = useContext(AuthContext)
     const {data:bookings = []} = useQuery({
         queryKey:['bookings',user?.email],
-        queryFn:()=>fetch(`https://doctors-c.vercel.app/bookings?email=${user?.email}`,{
+        queryFn:()=>fetch(`http://localhost:5000/bookings?email=${user?.email}`,{
 
          headers:{
 
-             authorization:`brear ${localStorage.getItem('accessToken')}`
+             authorization:`bearer ${localStorage.getItem('accessToken')}`
 
          }
+
 
 
         }).then(

@@ -2,14 +2,16 @@ import { useEffect, useState } from "react"
 
 
 const useToken = email =>{
+    console.log('from use token',email);
         const [token, setToken] = useState('')
     useEffect(() =>{
         
         if(email){
-            fetch(`https://doctors-c.vercel.app/jwt?email=${email}`)
+            fetch(`http://localhost:5000/jwt?email=${email}`)
             .then(res => res.json())
             .then(data =>{
-                if(data.accessToken){
+                console.log('data load',data);
+                if(data){
                     localStorage.setItem('accessToken', data.accessToken)
                     setToken(data.accessToken)
                 }

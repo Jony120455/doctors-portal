@@ -9,7 +9,7 @@ const [deleting, setDeleting] = useState(null)
     const {data:doctors, isLoading, refetch} = useQuery({
         queryKey:['doctors'],
         queryFn: () =>
-        fetch('https://doctors-c.vercel.app/doctors',{
+        fetch('http://localhost:5000/doctors',{
 
                 headers: {
                     'Content-Type': 'application/json',
@@ -30,7 +30,7 @@ const [deleting, setDeleting] = useState(null)
         setDeleting(null)
     }
     const deletingModal = doctor =>{
-        fetch(`https://doctors-c.vercel.app/doctors/${doctor._id}`,{
+        fetch(`http://localhost:5000/doctors/${doctor._id}`,{
             method:'DELETE',
             headers: {
                 authorization:`brear ${localStorage.getItem('accessToken')}`

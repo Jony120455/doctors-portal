@@ -13,7 +13,7 @@ const CheckOutForm = ({booking}) => {
 
     useEffect(() => {
         // Create PaymentIntent as soon as the page loads
-        fetch("https://doctors-c.vercel.app/create-payment-intent", {
+        fetch("http://localhost:5000/create-payment-intent", {
           method: "POST",
           headers: { 
             "Content-Type": "application/json",
@@ -80,7 +80,7 @@ const CheckOutForm = ({booking}) => {
           if(paymentIntent.status === 'succeeded'){
                 console.log('card success', card);
 
-                fetch("https://doctors-c.vercel.app/payments", {
+                fetch("http://localhost:5000/payments", {
           method: "POST",
           headers: { 
             "Content-Type": "application/json",

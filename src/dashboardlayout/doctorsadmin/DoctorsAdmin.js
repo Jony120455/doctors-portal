@@ -14,7 +14,7 @@ const DoctorsAdmin = () => {
 
         queryKey:['specialty'],
         queryFn: () =>
-        fetch('https://doctors-c.vercel.app/specialtyappointments').then(
+        fetch('http://localhost:5000/specialtyappointments').then(
           (res) => res.json(),
         ),
     })
@@ -39,7 +39,7 @@ const DoctorsAdmin = () => {
                     specialty:data.specialty,
                     image:imgData.data.url
                 }
-                fetch('https://doctors-c.vercel.app/doctors', {
+                fetch('http://localhost:5000/doctors', {
                 method: 'POST', // or 'PUT'
                 headers: {
                     'Content-Type': 'application/json',

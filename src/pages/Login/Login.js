@@ -6,10 +6,10 @@ import useToken from '../../hooks/useToken';
 
 const Login = () => {
     const { register,formState: { errors }, handleSubmit } = useForm();
-    const {signIn}= useContext(AuthContext)
+    const {signIn,user}= useContext(AuthContext)
     const [loginError, setLoginError] = useState('')
-    const [loginToken, setLoginToken] = useState('')
-    const [token] = useToken(loginToken)
+    // const [loginToken, setLoginToken] = useState('')
+    const [token] = useToken(user?.email)
 
     const location = useLocation();
     const navigate = useNavigate();
@@ -25,7 +25,7 @@ const Login = () => {
         .then(result =>{
             const user = result.user;
             console.log(user);
-            setLoginToken(data.email)
+            // setLoginToken(user.email)
             
         })
         .catch(error =>{

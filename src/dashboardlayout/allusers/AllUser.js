@@ -8,13 +8,13 @@ const AllUser = () => {
     const {data:users=[],refetch} = useQuery({
         queryKey:['users'],
         queryFn: () =>
-            fetch('https://doctors-c.vercel.app/users')
+            fetch('http://localhost:5000/users')
             .then((res) => res.json(),
             ),
     })
 
     const handleAdmin = id =>{
-        fetch(`https://doctors-c.vercel.app/users/admin/${id}`,{
+        fetch(`http://localhost:5000/users/admin/${id}`,{
             method:'PUT',
             headers:{
                 authorization:`brear ${localStorage.getItem('accessToken')}`

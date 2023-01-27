@@ -25,10 +25,10 @@ const BookingModal = ({tretMent,select,setTretment, refetch}) => {
             phone,
             price
         }
-        // fetch('https://doctors-c.vercel.app/bookings', {
+        // fetch('http://localhost:5000/bookings', {
             
         // })
-        fetch('https://doctors-c.vercel.app/bookings', {
+        fetch('http://localhost:5000/bookings', {
             method: 'POST', 
              headers: {
                 'Content-Type': 'application/json',

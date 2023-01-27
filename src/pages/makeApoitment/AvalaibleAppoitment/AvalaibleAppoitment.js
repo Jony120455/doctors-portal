@@ -10,7 +10,7 @@ const AvalaibleAppoitment = ({select}) => {
     const date = format(select,'PP')
     const {data:appoitmentOption = [], refetch, isLoading} = useQuery({
         queryKey:['appoitmentOption',date],
-        queryFn: () => fetch(`https://doctors-c.vercel.app/appointmentOptions?date=${date}`)
+        queryFn: () => fetch(`http://localhost:5000/appointmentOptions?date=${date}`)
         .then(res => res.json())
     })
 
